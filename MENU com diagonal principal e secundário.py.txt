@@ -1,0 +1,45 @@
+#Construa um programa que gere valores aleatórios para uma matriz 6x6. Em seguida, apresente um menu com as opções abaixo (use while):
+#Menu:
+#Mostrar a matriz formatada
+#Mostrar a diagonal principal
+#Mostrar a diagonal secundária
+#Somar os elementos da diagonal principal
+#Sair
+
+import random
+import numpy as np
+
+matriz = []
+matriz = np.random.randint(0, 100, (3, 3))
+op = -1
+
+while op != 5:
+    op = int(input("\nQual a opcão deseja?"))
+    
+    match op:
+        case 1:
+            for lin in range(3):
+                for col in range(3):
+                    print(f"{matriz[lin][col]:2}", end=' ')
+                print()
+        
+        case 2:
+            print("A diagonal principal é")
+            for i in range(3):
+                print(f"{matriz[i][i]}", end=' ')
+            
+        case 3:
+            print("Diagonal secundária é")
+            for i in range(3):
+                print(matriz[i][2 - i])
+        
+        case 4:
+            somadiagonal = 0
+            for i in range(3):
+                somadiagonal += matriz[i][i]
+            print(somadiagonal)
+        
+        case 5:
+            print("Saindo..")
+        case _:
+            print("Inválido")

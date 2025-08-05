@@ -1,0 +1,37 @@
+#Média, numero maior e menor MATRIZ
+
+import random
+import numpy as np
+
+matriz = []
+
+matriz = np.random.randint(0, 100, (5, 5))
+
+maiornumero = -1
+menornumero = 200
+op = -1
+soma = 0
+
+while op != 4:
+    op = int(input("Qual das opções deseja?"))
+    match op:
+        case 1:
+            for lin in range(5):
+                for col in range(5):
+                    print(f"{matriz[lin][col]:4}", end=' ')
+                print()
+        case 2:
+            maiornumero = matriz.max()
+            menornumero = matriz.min()
+            print(f"Maior número é {maiornumero}")
+            print(f"Menor número é {menornumero}")
+        case 3:
+            for lin in range(5):
+                for col in range(5):
+                    soma += matriz[lin][col]
+                    media = soma / 25
+            print(f"A média da matriz é {media}")
+        case 4:
+            print("Até mais!")
+        case _:
+            print("Inválido")
